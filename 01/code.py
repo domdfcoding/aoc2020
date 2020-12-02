@@ -42,7 +42,7 @@ Find the two entries that sum to ``2020``; what do you get if you multiply them 
 import operator
 from domdf_python_tools.paths import PathPlus
 import itertools
-
+import math
 
 # ==========================
 print("Part One")
@@ -53,7 +53,7 @@ expense_report = sorted(int(x) for x in PathPlus("input.txt").read_lines() if x)
 for pair in itertools.permutations(expense_report, 2):
 	if operator.add(*pair) == 2020:
 		print("The pair of numbers is:", pair)
-		print("The answer is:", operator.mul(*pair))
+		print("The answer is:", operator.mul(*pair))  # 838624
 		break
 
 # ==========================
@@ -72,18 +72,8 @@ In your expense report, what is the product of the three entries that sum to 202
 """
 
 
-def tri_add(a, b, c):
-	return a + b + c
-
-
-def tri_mul(a, b, c):
-	return a * b * c
-
-
 for pair in itertools.permutations(expense_report, 3):
-	if tri_add(*pair) == 2020:
+	if sum(pair) == 2020:
 		print("The three numbers are:", pair)
-		print("The answer is:", tri_mul(*pair))
+		print("The answer is:", math.prod(pair))  # 52764180
 		break
-
-
