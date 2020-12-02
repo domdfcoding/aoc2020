@@ -53,8 +53,8 @@ passwords = [x.split(": ") for x in PathPlus("input.txt").read_lines() if x]
 
 
 def parse_policy(policy: str) -> Tuple[range, str]:
-	count, char = policy.split(" ")
-	start, stop = map(int, count.split("-"))
+	count, char = policy.split(' ')
+	start, stop = map(int, count.split('-'))
 
 	return range(start, stop + 1), char
 
@@ -70,25 +70,22 @@ n_valid = 0
 for policy, password in passwords:
 	n_valid += verify_password(password, parse_policy(policy))
 
-
 print(f"There are {n_valid} valid passwords.")  # 556
-
 
 # ==========================
 print("\nPart Two")
 # ==========================
-
 """
 While it appears you validated the passwords correctly,
 they don't seem to be what the Official Toboggan Corporate Authentication System is expecting.
 
-The shopkeeper suddenly realizes that he just accidentally explained the password policy rules 
-from his old job at the sled rental place down the street! 
+The shopkeeper suddenly realizes that he just accidentally explained the password policy rules
+from his old job at the sled rental place down the street!
 The Official Toboggan Corporate Policy actually works a little differently.
 
-Each policy actually describes two positions in the password, 
-where 1 means the first character, 2 means the second character, and so on. 
-(Be careful; Toboggan Corporate Policies have no concept of "index zero"!) 
+Each policy actually describes two positions in the password,
+where 1 means the first character, 2 means the second character, and so on.
+(Be careful; Toboggan Corporate Policies have no concept of "index zero"!)
 Exactly one of these positions must contain the given letter.
 Other occurrences of the letter are irrelevant for the purposes of policy enforcement.
 
@@ -103,8 +100,8 @@ How many passwords are valid according to the new interpretation of the policies
 
 
 def parse_policy_v2(policy: str) -> Tuple[int, int, str]:
-	count, char = policy.split(" ")
-	first, second = map(int, count.split("-"))
+	count, char = policy.split(' ')
+	first, second = map(int, count.split('-'))
 
 	return first - 1, second - 1, char
 
@@ -121,6 +118,4 @@ n_valid = 0
 for policy, password in passwords:
 	n_valid += verify_password_v2(password, parse_policy_v2(policy))
 
-
 print(f"There are {n_valid} valid passwords.")  # 605
-
