@@ -39,10 +39,13 @@ Of course, your expense report is much larger. #
 Find the two entries that sum to ``2020``; what do you get if you multiply them together?
 """
 
-import operator
-from domdf_python_tools.paths import PathPlus
+# stdlib
 import itertools
 import math
+import operator
+
+# 3rd party
+from domdf_python_tools.paths import PathPlus
 
 # ==========================
 print("Part One")
@@ -59,18 +62,16 @@ for pair in itertools.permutations(expense_report, 2):
 # ==========================
 print("\nPart Two")
 # ==========================
-
 """
-The Elves in accounting are thankful for your help; 
-one of them even offers you a starfish coin they had left over from a past vacation. 
+The Elves in accounting are thankful for your help;
+one of them even offers you a starfish coin they had left over from a past vacation.
 They offer you a second one if you can find three numbers in your expense report that meet the same criteria.
 
-Using the above example again, the three entries that sum to 2020 are 979, 366, and 675. 
+Using the above example again, the three entries that sum to 2020 are 979, 366, and 675.
 Multiplying them together produces the answer, 241861950.
 
 In your expense report, what is the product of the three entries that sum to 2020?
 """
-
 
 for pair in itertools.permutations(expense_report, 3):
 	if sum(pair) == 2020:

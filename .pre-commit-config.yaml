@@ -64,10 +64,3 @@ repos:
    hooks:
     - id: yapf-isort
       exclude: ^(doc-source/conf|__pkginfo__|make_conda_recipe|setup|repo_helper/templates/.*)\.(_)?py$
-
- - repo: https://github.com/domdfcoding/dep_checker
-   rev: v0.4.1
-   hooks:
-    - id: dep_checker
-      args:
-       - repo_helper
