@@ -10,7 +10,7 @@ Since your group is just you, this doesn't take very long.
 
 However, the person sitting next to you seems to be experiencing a language barrier and asks if you can help.
 For each of the people in their group, you write down the questions for which they answer "yes", one per line.
-For example:.:
+For example::
 
 	abcx
 	abcy
@@ -123,4 +123,4 @@ for group in groups:
 	members = [set(m) for m in group]
 	total_yes += len(reduce(operator.and_, members))
 
-print("The total is:", total_yes)  # 6630
+print("The total is:", total_yes)  # 3437
