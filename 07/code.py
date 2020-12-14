@@ -59,14 +59,18 @@ print("Part One")
 
 rules = [x for x in PathPlus("input.txt").read_lines() if x]
 
+bags_re = re.compile(r"([a-z ]*) bags contain ((?:[0-9] [a-z ]*? (?:bag|bags)(?:, |\.))*)")
+delimiter_re = re.compile("[,.]")
+num_bags_re = re.compile("([0-9]) ([a-z ]*) (?:bag|bags)")
+
 bags = {}
 
 for rule in rules:
-	m = re.match(r"([a-z ]*) bags contain ((?:[0-9] [a-z ]*? (?:bag|bags)(?:, |\.))*)", rule)
+	m = bags_re.match(rule)
 
 	if m:
 		bag_colour = m.group(1)
-		bag_contents = list(filter(bool, re.split(r"[,.]", m.group(2))))
+		bag_contents = list(filter(bool, delimiter_re.split(m.group(2))))
 
 		if bag_colour in bags:
 			raise ValueError("Duplicate bag!")
@@ -78,7 +82,7 @@ for colour, contents in bags.items():
 
 	for inner_bag in contents:
 		# print(inner_bag)
-		m = re.match("([0-9]) ([a-z ]*) (?:bag|bags)", inner_bag.strip())
+		m = num_bags_re.match(inner_bag.strip())
 		if m:
 			flat_contents.extend([m.group(2)] * int(m.group(1)))
 
@@ -110,7 +114,7 @@ for colour in bags:
 	if contents:
 		valid_bags += 1
 
-print(f"{valid_bags} contain at least one shiny gold bag.")  # 161
+print(f"{valid_bags} bags contain at least one shiny gold bag.")  # 161
 
 # ==========================
 print("\nPart Two")
