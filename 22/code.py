@@ -471,7 +471,7 @@ Here is a complete example of gameplay, where Game 1 is the primary game of Recu
 	Player 1's deck:
 	Player 2's deck: 7, 5, 6, 2, 4, 1, 10, 8, 9, 3
 
-After the game, the winning player's score is calculated from the cards they have in their original deck 
+After the game, the winning player's score is calculated from the cards they have in their original deck
 using the same rules as regular Combat. In the above game, the winning player's score is ``291``.
 
 Defend your honor as Raft Captain by playing the small crab in a game of Recursive Combat using

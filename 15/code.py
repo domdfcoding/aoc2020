@@ -70,7 +70,6 @@ Given your starting numbers, what will be the ``2020``th number spoken?
 # stdlib
 from collections import defaultdict
 
-# 3rd party
 # from domdf_python_tools.utils import head
 
 # ==========================
