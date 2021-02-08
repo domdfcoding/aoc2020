@@ -41,13 +41,13 @@ repos:
       files: ^repo_helper/.*\.py$
 
  - repo: https://github.com/pre-commit/pygrep-hooks
-   rev: v1.7.0
+   rev: v1.7.1
    hooks:
     - id: python-no-eval
     - id: python-use-type-annotations
 
  - repo: https://github.com/asottile/pyupgrade
-   rev: v2.9.0
+   rev: v2.10.0
    hooks:
     - id: pyupgrade
       args:
